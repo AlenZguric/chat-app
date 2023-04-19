@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap");
+@import "./animations/textAnimations.css";
+body {
+  background-image: url(../multimedia/mob_back.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+body main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+body main h1 {
+  font-family: "Tilt Prism", cursive;
+  color: rgb(67, 165, 42);
+  text-transform: uppercase;
+}
+body main h3 {
+  margin-top: 40px;
+  text-transform: uppercase;
+  font-family: "Tilt Prism", cursive;
+}
+
+@media only screen and (min-width: 1024px) {
+  body {
+    background-image: url(../multimedia/deskt_back.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+  }
+}/*# sourceMappingURL=body.css.map */

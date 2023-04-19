@@ -2,6 +2,7 @@ import React from "react";
 import { useRef } from "react";
 import {FaBars, FaTimes} from "react-icons/fa";
 import "../../css/header.css";
+import "../../css/body.css";
 
 export default function NavBar() {
     const navRef = useRef();
@@ -14,8 +15,8 @@ export default function NavBar() {
         <header>
             <h3>Zguric Apps</h3>
             <nav ref= {navRef}>
-                <a href="/#">Home</a>
-                <a href="/#">Prijavi se</a>
+                <a href="/#">Početna</a>
+                <a href="/#">Chat</a>
                 <a href="/#">Kontakt</a>
                 <a href="/#">O Stranici</a> 
                 <button className="nav-btn nav-close-btn" onClick={showNavbar}>
