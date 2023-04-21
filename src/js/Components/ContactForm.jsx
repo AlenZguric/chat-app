@@ -33,6 +33,7 @@ export default function ContactForm  ()   {
 
     return (
         <div>
+            <h3>Kontaktiraj me</h3>
             <form ref={form} onSubmit={sendEmail}>
             <label>Ime i Prezime:</label>
             <input type="text" name="user_name" required/>

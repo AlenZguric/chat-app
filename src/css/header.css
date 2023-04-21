@@ -7,7 +7,7 @@
 }
 
 :root {
-  --mainColor: #4264eefb;
+  --mainColor: #5c5237fb;
   --mainColorLigh: #798ace;
   --secondaryColor: #DB2B39;
   --textColor: #eee;
@@ -24,6 +24,7 @@ header {
 }
 header h3 {
   font-size: 16px;
+  cursor: pointer;
 }
 header nav a {
   margin: 0 2rem;

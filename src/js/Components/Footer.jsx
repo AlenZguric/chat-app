@@ -1,6 +1,7 @@
 import React from "react";
 import ContactForm from "./ContactForm";
 import "../../css/footer.css";
+import AboutUs from "./AboutUs";
 
 export default function Footer () {
     
@@ -9,14 +10,18 @@ export default function Footer () {
     return (
         <footer>
             <div className="footer-container">
+                <div className="aboutUs">
+                    <AboutUs/>
+                </div>
+
                 <div className="contact">
                     <ContactForm/>
                 </div>
-                <div className="about">
-                    <h3>O Stranici</h3>
-                    <p>Namjenjeno za završni rad za Front end Deleopera</p>
+
+                <div className="copyright">  
+                © <span>{currentYear} </span> 
+                Završni rad Alen Zgurić, sva prava pridržana
                 </div>
-                <div className="copyright">  © <span>{currentYear}</span> Završni rad Alen Zgurić, sva prava pridržana</div>
             </div>            
         </footer>
     );

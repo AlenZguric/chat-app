@@ -13,7 +13,7 @@ export default function NavBar() {
 
     return(
         <header>
-            <h3>Zguric Apps</h3>
+            <h3 title="Logo Zguric apps">Zguric Apps</h3>
             <nav ref= {navRef}>
                 <a href="/#">Početna</a>
                 <a href="/#">Chat</a>
