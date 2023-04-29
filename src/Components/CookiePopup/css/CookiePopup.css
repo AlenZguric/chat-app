@@ -1,0 +1,37 @@
+.cookie-popup {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+}
+.cookie-popup p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+.cookie-popup p a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 700;
+  margin-left: 5px;
+}
+.cookie-popup .button-group {
+  display: flex;
+  justify-content: space-between;
+}
+.cookie-popup .button-group button.close {
+  background-color: transparent;
+  border: none;
+  color: #999;
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+.cookie-popup .button-group button.close:hover {
+  color: #000000;
+}/*# sourceMappingURL=CookiePopup.css.map */

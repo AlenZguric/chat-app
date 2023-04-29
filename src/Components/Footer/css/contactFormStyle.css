@@ -1,0 +1,115 @@
+.contaktMe {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(240, 248, 255, 0.534);
+}
+.contaktMe .contactForm h3 {
+  padding: 10px;
+  margin-left: 15px;
+}
+.contaktMe .contactForm form {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  font-size: 16px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.contaktMe .contactForm form input {
+  width: 100%;
+  height: 35px;
+  padding: 7px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid rgb(220, 220, 220);
+}
+.contaktMe .contactForm form input:focus {
+  border: 2px solid rgb(0, 206, 158);
+}
+.contaktMe .contactForm textarea {
+  max-width: 100%;
+  min-width: 100%;
+  width: 100%;
+  max-height: 200px;
+  min-height: 100px;
+  padding: 7px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid rgb(220, 220, 220);
+}
+.contaktMe .contactForm textarea:focus {
+  border: 2px solid rgb(0, 206, 158);
+}
+.contaktMe .contactForm label {
+  margin-top: 1rem;
+}
+.contaktMe .contactForm input[type=submit] {
+  margin-top: 2rem;
+  cursor: pointer;
+  background: rgba(241, 137, 0, 0.815);
+  color: rgb(255, 255, 255);
+  border: none;
+  font-weight: 600;
+}
+.contaktMe .address {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 6px;
+  border: solid 4px rgba(255, 255, 255, 0.4588235294);
+  border-radius: 10px;
+  padding: 6px;
+}
+.contaktMe .address .email a {
+  color: black;
+}
+.contaktMe .address .email a:hover {
+  text-transform: uppercase;
+  color: red;
+}
+.contaktMe .address .addressMap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contaktMe .address .addressMap a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 25px;
+  color: black;
+}
+.contaktMe .address .addressMap a:hover {
+  text-transform: uppercase;
+  color: red;
+}
+.contaktMe .address .addressMap p {
+  margin-left: 20px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .contaktMe {
+    display: flex;
+    flex-direction: column;
+  }
+  .contaktMe .contactForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .contaktMe .contactForm h3 {
+    font-size: 20px;
+  }
+  .contaktMe .contactForm form {
+    width: 600px;
+    margin-bottom: 30px;
+  }
+  .contaktMe .address {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+  }
+}/*# sourceMappingURL=contactFormStyle.css.map */
