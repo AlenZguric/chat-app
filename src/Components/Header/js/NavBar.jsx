@@ -36,7 +36,7 @@ export default function NavBar() {
                     <CustomLink to="/chat">Chat</CustomLink>
                     <CustomLink to="/kontakt">Kontakt</CustomLink>
                     <CustomLink to="/o_stranici">O Stranici</CustomLink> 
-                    <CustomLink to="/pravila_uvijet" >Pravila</CustomLink>
+                    <CustomLink to="/pravila_privatnosti" >Pravila</CustomLink>
                 </ul>
                 
                 <button className="nav-btn nav-close-btn" onClick={showNavbar}>

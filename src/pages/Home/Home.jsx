@@ -6,13 +6,20 @@ import "../../Components/Footer/css/contactFormStyle.css";
 import React from "react";
 import Footer from "../../Components/Footer/js/Footer"
 import ContactForm from "../../Components/Footer/js/ContactForm";
+import CookiePopup from "../../Components/CookiePopup/js/CookiePopup";
+import PageTitle from "../../Components/Header/js/PageTitle";
 
 
 
 
 export default function Home(){
+
+
+    
     return(
           <main>
+            <CookiePopup/>
+            <PageTitle title="Početna"/>
             <section>
                 <div className="title">
                     <h1>FRONT-END DEVELOPER</h1>
