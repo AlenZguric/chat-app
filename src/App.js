@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import NavBar from "./Components/Header/js/NavBar";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
-import Chat from "./pages/Chat/Chat";
+import Chat from "./pages/Chat/ChatP";
 import Contakt from "./pages/Contact/Contakt";
 import Privacy from "./pages/Privacy/Privacy";
 

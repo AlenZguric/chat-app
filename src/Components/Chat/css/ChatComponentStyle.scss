@@ -1,0 +1,26 @@
+.ChatBox {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .ChatBox-header {
+    background-color: #222;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .ChatMessage {
+    flex: 1;
+    overflow-y: scroll;
+    padding: 1rem;
+  }
+  
+  .ChatInput {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    padding: 1rem;
+  }
+  
