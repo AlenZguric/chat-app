@@ -1,79 +1,45 @@
-import React, { useState, useEffect } from 'react';
-import ChatMessage from './ChatMessage';
-import ChatInput from "./ChatInput";
-import "../css/ChatComponentStyle.css";
-
-function randomName() {
-  const adjectives = [
-    "autumn", "hidden", "bitter", "misty", "silent", "empty", "dry", "dark",
-     "purple", "lively", "nameless"
-  ];
-  const nouns = [
-    "waterfall", "river", "breeze", "moon", "rain", "wind", "sea", "morning",
-   "star"
-  ];
-  const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
-  const noun = nouns[Math.floor(Math.random() * nouns.length)];
-  return adjective + noun;
-}
-
-function randomColor() {
-  return '#' + Math.floor(Math.random() * 0xFFFFFF).toString(16);
-}
+import { useState, useEffect } from 'react';
+const Scaledrone = window.Scaledrone; 
 
 export default function ChatComponent() {
+  const [message, setMessage] = useState();
   const [messages, setMessages] = useState([]);
-  const [member, setMember] = useState({
-    username: randomName(),
-    color: randomColor(),
-  });
 
   useEffect(() => {
-    const drone = new window.Scaledrone("phcr8VR9dJAbJ9IO", {
-      data: member
-    });
+    const drone = new Scaledrone('phcr8VR9dJAbJ9IO');
+    const room = drone.subscribe('room_name');
 
-    drone.on('open', error => {
-      if (error) {
-        return console.error(error);
-      }
-      const newMember = {...member};
-      newMember.id = drone.clientId;
-      setMember(newMember);
-    });
-
-    const room = drone.subscribe("SobaZaProbu");
     room.on('data', (data, member) => {
-      setMessages(prevMessages => [...prevMessages, {member, text: data}]);
+      setMessages(prevMessages => [...prevMessages, { text: data, name: member.clientData.name }]);
     });
 
     return () => {
-      drone.close();
+     drone.disconnect(drone);
     };
-  },[] );
+  }, []);
 
-  const onSendMessage = (message) => {
-    const drone = new window.Scaledrone("phcr8VR9dJAbJ9IO");
-    drone.publish({
-      room: "SobaZaProbu",
-      message
-    });
-  }
+  const handleMessageChange = (event) => {
+    setMessage(event.target.value);
+  };
+   const handleMessageSubmit = (event) => {
+    event.preventDefault();
+    const drone = new Scaledrone('phcr8VR9dJAbJ9IO');
+    const room = drone.subscribe('room_name');
+    room.publish({ message });
+    setMessage('');
+  };
 
   return (
-    <div className="ChatBox">
-      <div className="ChatBox-header">
-        <h1>My Chat App</h1>
-      </div>
-      <ChatMessage
-        messages={messages}
-        currentMember={member}
-      />
-      <ChatInput
-        onSendMessage={onSendMessage}
-      />
+    <div>
+      {messages.map((message, index) => (
+        <div key={index}>
+          {message.name}: {message.text}
+        </div>
+      ))}
+      <form onSubmit={handleMessageSubmit}>
+        <input type="text" value={message} onChange={handleMessageChange} />
+        <button type="submit">Send</button>
+      </form>
     </div>
   );
 }
-
-
