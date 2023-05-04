@@ -1,32 +1,27 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
+import { useState } from "react";
 
 const JoinRoom = ({ onJoin }) => {
-  const [username, setUsername] = useState('');
+  const [name, setName] = useState("");
 
   const handleJoin = (e) => {
     e.preventDefault();
-    if (username.trim() !== '') {
-      onJoin(username.trim());
-    }
+    onJoin(name );
+    setName("");
   };
 
   return (
     <form onSubmit={handleJoin}>
-      <label htmlFor="username">Enter your username:</label>
-      <input
-        id="username"
-        type="text"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <button type="submit">Join</button>
+      <label>
+        Unesi Svoje Ime:
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+      </label>
+      <button type="submit">Prijavi se</button>
     </form>
   );
-};
-
-JoinRoom.propTypes = {
-  onJoin: PropTypes.func.isRequired,
 };
 
 export default JoinRoom;

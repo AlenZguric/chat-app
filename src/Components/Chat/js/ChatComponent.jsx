@@ -1,6 +1,5 @@
-import { useState, useEffect, useContext } from 'react';
-import { useParams } from 'react-router-dom';
-import { useChatContext } from './ChatContext';
+import { useState, useEffect } from 'react';
+import {} from '../js/JoinRoom';
 
 const ScaleDrone = window.Scaledrone;
 
@@ -11,17 +10,18 @@ const ChatRoom = () => {
   const [members, setMembers] = useState([]);
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
-  const { username } = useChatContext();
-  const { roomId } = useParams();
+  const [name] = useState('');
 
   useEffect(() => {
+    if (!name) return;
+
     const newDrone = new ScaleDrone(CLIENT_ID);
     setDrone(newDrone);
 
     newDrone.on('open', () => {
       console.log('Successfully connected to Scaledrone');
 
-      const room = newDrone.subscribe(`observable-room-${roomId}`);
+      const room = newDrone.subscribe('observable-room');
       room.on('open', () => {
         console.log('Successfully joined room');
       });
@@ -65,7 +65,7 @@ const ChatRoom = () => {
         newDrone.close();
       }
     };
-  }, [roomId]);
+  }, [name]);
 
   const sendMessage = (e) => {
     e.preventDefault();
@@ -74,7 +74,7 @@ const ChatRoom = () => {
     }
     setInputValue('');
     drone.publish({
-      room: `observable-room-${roomId}`,
+      room: 'observable-room',
       message: inputValue,
     });
   };
@@ -85,8 +85,8 @@ const ChatRoom = () => {
         {members.length} users in room:
         <ul>
           {members.map((member) => (
-            <li key={member.id} style={{ color: member.clientData }}>
-              {member.clientData.name}
+            <li key={member.id} >
+              {member.clientData}
             </li>
           ))}
         </ul>
@@ -104,7 +104,6 @@ const ChatRoom = () => {
       </div>
     );
   };
-
 
   return (
     <div>
@@ -128,6 +127,6 @@ const ChatRoom = () => {
       )}
     </div>
   );
-}
+};
 
 export default ChatRoom;
