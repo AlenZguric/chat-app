@@ -14,8 +14,6 @@ import PageTitle from "../../Components/Header/js/PageTitle";
 
 export default function Home(){
 
-
-    
     return(
           <main>
             <CookiePopup/>
@@ -27,7 +25,7 @@ export default function Home(){
                 </div>
                 <div className="files">
                     <p >Kako bih olakšao pristup svojoj aplikaciji klikom na niže ikone 
-                        možete pristupiti GitHub repozitoriju ili downloadati .zip fajl.    
+                        možete pristupiti GitHub repozitoriju ili preuzeti .zip fajl.    
                      </p>
                     <h4>App Dostupan na:</h4>
                     <FaReactIcons/>

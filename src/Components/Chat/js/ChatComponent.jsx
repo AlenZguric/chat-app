@@ -1,22 +1,23 @@
 import { useState, useEffect } from 'react';
-import {} from '../js/JoinRoom';
-
 const ScaleDrone = window.Scaledrone;
+
+
 
 const CLIENT_ID = 'phcr8VR9dJAbJ9IO';
 
-const ChatRoom = () => {
+function ChatRoom  (props)  {
   const [drone, setDrone] = useState(null);
   const [members, setMembers] = useState([]);
   const [messages, setMessages] = useState([]);
-  const [inputValue, setInputValue] = useState('');
-  const [name] = useState('');
+  const [name, setName] = useState('');
+
+
 
   useEffect(() => {
-    if (!name) return;
-
     const newDrone = new ScaleDrone(CLIENT_ID);
     setDrone(newDrone);
+
+    
 
     newDrone.on('open', () => {
       console.log('Successfully connected to Scaledrone');
@@ -25,6 +26,8 @@ const ChatRoom = () => {
       room.on('open', () => {
         console.log('Successfully joined room');
       });
+
+      
 
       room.on('members', (m) => {
         setMembers(m);
@@ -40,11 +43,11 @@ const ChatRoom = () => {
         );
       });
 
-      room.on('data', (text, member) => {
+      room.on('data', (text, member ) => {
         if (member) {
           setMessages((prevMessages) => [
             ...prevMessages,
-            { text, member },
+            { text, member, name: props.name},
           ]);
         } else {
           // Message is from server
@@ -65,28 +68,35 @@ const ChatRoom = () => {
         newDrone.close();
       }
     };
-  }, [name]);
+  }, [] );
 
   const sendMessage = (e) => {
     e.preventDefault();
-    if (inputValue === '') {
+    if (name === '') {
       return;
     }
-    setInputValue('');
+    const message = {
+      sender: props.name,
+      text: name
+    };
+    
+    setName('');
     drone.publish({
       room: 'observable-room',
-      message: inputValue,
+      message : message,
     });
   };
 
+
+ 
   const updateMembersDOM = () => {
     return (
-      <div>
-        {members.length} users in room:
+      <div className='NumRoom'>
+        <p>{members.length} Korisnika je u sobi </p>
         <ul>
           {members.map((member) => (
-            <li key={member.id} >
-              {member.clientData}
+            <li key={member.id}>
+              {member.clientData} <span></span>
             </li>
           ))}
         </ul>
@@ -94,21 +104,28 @@ const ChatRoom = () => {
     );
   };
 
-  const createMessageElement = (text, member) => {
+
+
+  const createMessageElement = (message, index) => {
     return (
-      <div className="message">
-        <div className="member" style={{ color: member.clientData }}>
-          {member.clientData.name}
+      <div className="message" key={index}>
+        <div className="member" key={message.member?.id}>
+          {message.member && message.member.clientData}
         </div>
-        <div>{text}</div>
+        <div>
+          <strong>{message.sender}: </strong>
+          {message.text}
+        </div>
       </div>
     );
   };
+ 
 
   return (
     <div>
       {drone && (
         <>
+        <h1>Dobrodošli,   {props.name}</h1>
           {updateMembersDOM()}
           <div className="messages">
             {messages.map((message, index) =>
@@ -118,12 +135,12 @@ const ChatRoom = () => {
           <form onSubmit={sendMessage}>
             <input
               type="text"
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
-            <button type="submit">Send</button>
+            <button  onClick={sendMessage}>Send</button>
           </form>
-        </>
+          </>
       )}
     </div>
   );
