@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
+import "../css/chatComponentStyle.css";
 const ScaleDrone = window.Scaledrone;
-
-
 
 const CLIENT_ID = 'phcr8VR9dJAbJ9IO';
 
@@ -12,12 +11,10 @@ function ChatRoom  (props)  {
   const [name, setName] = useState('');
 
 
-
+  
   useEffect(() => {
     const newDrone = new ScaleDrone(CLIENT_ID);
-    setDrone(newDrone);
-
-    
+    setDrone(newDrone);    
 
     newDrone.on('open', () => {
       console.log('Successfully connected to Scaledrone');
@@ -25,9 +22,7 @@ function ChatRoom  (props)  {
       const room = newDrone.subscribe('observable-room');
       room.on('open', () => {
         console.log('Successfully joined room');
-      });
-
-      
+      });      
 
       room.on('members', (m) => {
         setMembers(m);
@@ -50,7 +45,7 @@ function ChatRoom  (props)  {
             { text, member, name: props.name},
           ]);
         } else {
-          // Message is from server
+          
         }
       });
     });
@@ -77,59 +72,63 @@ function ChatRoom  (props)  {
     }
     const message = {
       sender: props.name,
-      text: name
+      text: name,
     };
     
     setName('');
     drone.publish({
       room: 'observable-room',
       message : message,
+      
     });
   };
+   
 
-
- 
-  const updateMembersDOM = () => {
-    return (
-      <div className='NumRoom'>
-        <p>{members.length} Korisnika je u sobi </p>
-        <ul>
-          {members.map((member) => (
-            <li key={member.id}>
-              {member.clientData} <span></span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  };
-
-
-
-  const createMessageElement = (message, index) => {
-    return (
-      <div className="message" key={index}>
-        <div className="member" key={message.member?.id}>
-          {message.member && message.member.clientData}
+    const updateMembersDOM = ({ members}) => {
+      return (
+        <div className="NumRoom">
+          <p>{members.length} ON-LINE </p>
+          <ul>
+            {/* {members.map((member) => (
+              <li  key={member.id.name}>
+                {member.clientData}{name} 
+              </li>
+            ))}*/}
+          </ul> 
         </div>
-        <div>
-          <strong>{message.sender}: </strong>
-          {message.text}
+      );
+    };
+
+
+
+    const createMessageElement = (message, index) => {
+      const senderClass = message.sender === props.name ? 'sender' : 'receiver';
+    
+      return (
+        <div className={`message ${senderClass}`} key={index}>
+          <div className="member" key={message.member?.id}>
+            {message.member && message.member.clientData}
+          </div>
+          <div>
+            <h4>{message.sender}: </h4>
+            <p>{message.text}</p>
+            <span className="sendTime"></span>
+          </div>
         </div>
-      </div>
-    );
-  };
+      );
+    };
+    
  
 
   return (
-    <div>
+    <div className="chat-room">
       {drone && (
         <>
-        <h1>Dobrodošli,   {props.name}</h1>
-          {updateMembersDOM()}
+        <h1>Dobrodošli   {props.name}</h1>
+        <p className='activeUsers'>{updateMembersDOM({ members: members, name: props.name })}</p>
           <div className="messages">
             {messages.map((message, index) =>
-              createMessageElement(message.text, message.member, index)
+              createMessageElement(message.text, message.member, index)              
             )}
           </div>
           <form onSubmit={sendMessage}>
@@ -137,8 +136,9 @@ function ChatRoom  (props)  {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              placeholder='Unesi text...'
             />
-            <button  onClick={sendMessage}>Send</button>
+            <button  onClick={sendMessage}>Pošalji</button>
           </form>
           </>
       )}

@@ -10,7 +10,8 @@ import { useState } from "react";
 export default function ChatP(){
     const [showCompA, setShowCompA] = useState(true);
     const [name, setName] = useState("");
-  
+
+
     function handleSendName(name) {
       setShowCompA(false);
       setName(name);

@@ -14,7 +14,7 @@ body main section {
   display: flex;
   align-items: center;
   flex-direction: column;
-  min-height: 60vh;
+  height: 100vh;
   background-color: rgba(255, 255, 255, 0.508);
 }
 body main section .title {

@@ -1,0 +1,184 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+}
+main section {
+  width: 100%;
+  height: 100%;
+}
+main section .chat-room {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+}
+main section .chat-room h1 {
+  font-family: "Tilt Prism", cursive;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 15px;
+}
+main section .chat-room .activeUsers .NumRoom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main section .chat-room .activeUsers .NumRoom p {
+  display: inline-block;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #1e8449;
+  background-color: #1e8449;
+  color: white;
+  border-radius: 15px;
+  padding: 3px;
+  font-weight: 600;
+}
+main section .chat-room .messages {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  overflow-y: scroll;
+  margin-bottom: 10px;
+}
+main section .chat-room .messages .message {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+main section .chat-room .messages .message .member {
+  margin-bottom: 5px;
+}
+main section .chat-room .messages .message div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+main section .chat-room .messages .message div h4 {
+  margin: 0;
+}
+main section .chat-room .messages .message div p {
+  margin: 5px 0 0 0;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+}
+main section .chat-room .messages .message div .sendTime {
+  margin-top: 5px;
+}
+main section .chat-room .messages .message.sender {
+  align-self: flex-end;
+  border: blue;
+}
+main section .chat-room .messages .message.sender div {
+  align-items: flex-end;
+}
+main section .chat-room .messages .message.sender div h4 {
+  display: flex;
+  text-align: right;
+  color: rgb(0, 0, 0);
+  font-family: "Courier New", Courier, monospace;
+}
+main section .chat-room .messages .message.sender div p {
+  background-color: blue;
+  color: white;
+}
+main section .chat-room .messages .message.receiver {
+  align-self: flex-start;
+  border: #1e8449;
+}
+main section .chat-room .messages .message.receiver div {
+  align-items: flex-start;
+}
+main section .chat-room .messages .message.receiver div h4 {
+  display: flex;
+  text-align: right;
+  color: rgb(0, 0, 0);
+  font-family: "Courier New", Courier, monospace;
+}
+main section .chat-room .messages .message.receiver div p {
+  background-color: green;
+  color: white;
+}
+main section .chat-room form {
+  position: fixed;
+  overflow: visible;
+  bottom: 0;
+  left: 0;
+  padding: 5px;
+  margin-top: 10px;
+  width: 100%;
+}
+main section .chat-room form input[type=text] {
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #ffffff;
+  box-shadow: 0 0 5px rgba(173, 162, 162, 0.3);
+  font-size: 16px;
+  width: 80%;
+}
+main section .chat-room form button {
+  border: none;
+  border-radius: 20px;
+  background-color: #3498db;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  width: 20%;
+  height: 45px;
+}
+
+@media only screen and (min-width: 1024px) {
+  main {
+    width: 100%;
+    height: 100%;
+  }
+  main section {
+    width: 100%;
+    height: 100%;
+  }
+  main section .chat-room {
+    width: 50%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+  }
+  main section form {
+    width: 50%;
+    height: 45px;
+    padding: 5px;
+    margin-top: 10px;
+    overflow: hidden;
+  }
+  main section form input[type=text] {
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px rgba(173, 162, 162, 0.3);
+    font-size: 16px;
+    width: 80%;
+  }
+  main section form button {
+    border: none;
+    border-radius: 20px;
+    background-color: #3498db;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    width: 20%;
+    height: 45px;
+  }
+}/*# sourceMappingURL=chatComponentStyle.css.map */
