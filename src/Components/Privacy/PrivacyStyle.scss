@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ section{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.508);
+
+.privacy {
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    max-width: 800px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 40px;
+    margin-right: 40px;
+    
+    
+    h1 {
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 40px;
+      margin-top: 25px;
+      font-family: 'Tilt Prism', cursive;
+      color: black;
+    }
+    
+    p {
+      font-size: 20px;
+      line-height: 1.5;
+      margin-bottom: 40px;
+      color: black;
+      font-weight: 500;
+    }
+   
+}     
+    
+
+@media (max-width:764px) {
+
+  .aboutusbody {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+      
+    h1 {
+      font-size: 28px;
+      text-align: center;
+      margin-bottom: 20px;
+      color: black;
+
+    }
+    
+    p {
+      font-size: 18px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: black;
+      margin-bottom: 35px;
+    }
+    
+}
+.copyright{
+    font-size: 12px;
+    padding: 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    height: 100%;
+    background-color: rgba(240, 248, 255, 0.534);
+    text-align: center;
+  }
+}
+}

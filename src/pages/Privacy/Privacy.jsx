@@ -1,21 +1,24 @@
 import CookiePopup from "../../Components/CookiePopup/js/CookiePopup";
-import { Link } from "react-router-dom";
 import PageTitle from "../../Components/Header/js/PageTitle";
+import PrivacyPolicy from "../../Components/Privacy/PrivacyPolicy";
+import CopyRight from "../../Components/Footer/js/CopyRight";
+import ContactForm from "../../Components/Footer/js/ContactForm";
 
 
 
 export default function Privacy(){
     return(
-          <main>
-             <PageTitle title="Pravila i privatnost" />
+        <div>
+            <PageTitle title="O Stranici" />
             <CookiePopup/>
             <section>
-                <div className="privacy">
-                    <div className="title">
-                        <h3><Link to="/" alt="Zguric Apps" >Zguric Apps</Link></h3>
-                    </div>
-                </div>
+                <PrivacyPolicy/>  
             </section>
-        </main> 
+        <hr/>
+        <footer>
+            <ContactForm/>    
+            <CopyRight/>
+        </footer>
+    </div>
     );
 }

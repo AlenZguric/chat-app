@@ -11,14 +11,14 @@ export default function Footer () {
     return (
         <footer>
             <div className="footer-container">
-                <Link to="/about" >
+                <Link to="/o_stranici" >
                     <div className="aboutUs">
                        <AboutUsHome/> 
                     </div>
                 </Link>                                
             </div> 
             <div className="copyRight">
-                <Link to="/Privacy" target="_blank" style={{textDecoration:"none" }}> 
+                <Link to="/Privacy"  style={{textDecoration:"none" }}> 
                     <div className="copyright">  
                     © <span>{currentYear} </span> 
                     Zguric App | sva prava pridržana

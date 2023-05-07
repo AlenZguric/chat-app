@@ -7,7 +7,6 @@ body {
   background-position: center center;
   display: flex;
   flex-direction: column;
-  min-height: auto;
 }
 body main section {
   flex: 1;
