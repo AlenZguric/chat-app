@@ -8,7 +8,7 @@ export default function CopyRight (){
 
     return (
         <div className="copyRight">
-                <Link to="/Privacy"  style={{textDecoration:"none" }}> 
+                <Link to="pravila_privatnosti"  style={{textDecoration:"none" }}> 
                     <div className="copyright">  
                     © <span>{currentYear} </span> 
                     Zguric App | sva prava pridržana
