@@ -23,11 +23,11 @@ export default function ChatP(){
              <CookiePopup/>
              
             <section>
-            {showCompA ? (
-        <JoinRoom onSend={handleSendName} />
-      ) : (
-        <ChatComponent name={name} />
-      )}
+                {showCompA ? (
+                  <JoinRoom onSend={handleSendName} />
+                ) : (
+                  <ChatComponent name={name} />
+                )}
             </section>
         </main> 
     );

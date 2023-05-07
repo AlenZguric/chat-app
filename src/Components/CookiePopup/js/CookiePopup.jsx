@@ -29,7 +29,7 @@ export default function CookiePopup() {
     <div className="cookie-popup">
       <p>
         Ova web stranica koristi kolačiće kako bi se osiguralo najbolje iskustvo korisnika.
-        <Link to="/pravila_uvijet" > Pročitajte više o tome kako koristimo kolačiće.</Link>
+        <Link to="/pravila_privatnosti" > Pročitajte više o tome kako koristimo kolačiće.</Link>
       </p>
       <div className="button-group">
         <button className="accept" onClick={acceptCookies}>Prihvaćam</button>
