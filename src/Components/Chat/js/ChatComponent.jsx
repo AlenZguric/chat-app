@@ -9,6 +9,7 @@ function ChatRoom  (props)  {
   const [members, setMembers] = useState([]);
   const [messages, setMessages] = useState([]);
   const [name, setName] = useState('');
+  
 
 
   
@@ -88,21 +89,23 @@ function ChatRoom  (props)  {
       return (
         <div className="NumRoom">
           <p>{members.length} ON-LINE </p>
-          <ul>
-            {/* {members.map((member) => (
-              <li  key={member.id.name}>
-                {member.clientData}{name} 
+          {/* <ul>
+              {members.map((member) => (
+              <li  key={props.name}>
+                {props.name}
               </li>
-            ))}*/}
-          </ul> 
+            ))}
+          </ul>  */}
         </div>
       );
     };
 
-
+    
 
     const createMessageElement = (message, index) => {
-      const senderClass = message.sender === props.name ? 'sender' : 'receiver';
+      const senderClass = message.sender === props.name ? 'sender' : 'receiver';     
+
+      
     
       return (
         <div className={`message ${senderClass}`} key={index}>

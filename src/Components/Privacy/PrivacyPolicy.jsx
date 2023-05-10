@@ -8,7 +8,7 @@ export default function PrivacyPolicy() {
                 <h1>Pravila korištenja i privatnosti</h1>
             <p>
                 Ova web stranica posjeduje Alen Zgurić i služi isključivo u svrhe
-                završnog rada za front end dev.
+                završnog rada za front end developera.
             </p>
             <p>
                 Sva prava pridržana. Sadržaj ove web stranice, uključujući tekst,
