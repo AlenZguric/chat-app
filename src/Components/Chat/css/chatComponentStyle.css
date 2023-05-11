@@ -157,6 +157,10 @@ main section .chat-room form button {
   }
   main section .chat-room .messages {
     margin-top: 30px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
   main section .chat-room form {
     height: 45px;
