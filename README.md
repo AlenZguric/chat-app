@@ -1,3 +1,6 @@
+Dostupna na:  
+ https://AlenZguric.github.io/chat-app
+
 Dakle, web stranica je rađena kao seminarski rad za front-end developera, s ciljem demonstracije znanja i vještina u korištenju različitih tehnologija i alata. Za izradu stranice korišten je React kao glavni framework, a za stilizaciju i upravljanje CSS-om korišten je SCSS.
 
 Jedna od glavnih funkcija web stranice je chat, koji je integriran u stranicu uz pomoć Scaledronea. Korisnici mogu razgovarati u realnom vremenu i dijeliti svoje poglede, pitati pitanja i dijeliti ideje.
